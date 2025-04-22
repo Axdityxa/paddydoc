@@ -4,15 +4,15 @@
   "main": "index.ts",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@supabase/supabase-js": "^2.49.4",
-    "expo": "~52.0.43",
+    "expo": "~52.0.46",
     "expo-av": "^15.0.2",
     "expo-camera": "~16.0.18",
     "expo-file-system": "^18.0.12",
@@ -21,13 +21,14 @@
     "react": "18.3.1",
     "react-native": "0.76.9",
     "react-native-loading-spinner-overlay": "^3.0.1",
+    "react-native-reanimated": "^3.17.4",
     "react-native-url-polyfill": "^2.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/react": "~18.3.12",
     "dotenv": "^16.5.0",
-    "react-native-dotenv": "^3.4.11",
+    "react-native-dotenv": "^3.4.9",
     "typescript": "^5.3.3"
   },
   "private": true

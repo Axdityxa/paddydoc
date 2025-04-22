@@ -12,17 +12,43 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "jsEngine": "hermes",
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow PaddyDoc to access your camera to analyze rice plant diseases",
+          "microphonePermission": "Allow PaddyDoc to access your microphone"
+        }
+      ]
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to take photos of rice plants for disease analysis",
+        "NSMicrophoneUsageDescription": "This app uses the microphone for basic camera functionality"
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.axdityxa.paddydoc_app",
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1698c062-e94b-458b-941c-7ea714bb9c68"
+      }
     }
   }
 }
