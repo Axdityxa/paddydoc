@@ -130,25 +130,25 @@ export default function App() {
     });
   }, []);
 
-  // Handle header taps to show debug modal
+  // Handle header taps to show debug modal (only in development)
   const handleHeaderTap = () => {
-    setTapCount(prev => {
-      const newCount = prev + 1;
-      if (newCount >= 5) {
-        setShowDebug(true);
-        return 0;
-      }
-      return newCount;
-    });
+    // Only enable debug mode in development builds
+    if (__DEV__) {
+      setTapCount(prev => {
+        const newCount = prev + 1;
+        if (newCount >= 5) {
+          setShowDebug(true);
+          return 0;
+        }
+        return newCount;
+      });
+    }
   };
 
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
         <Text style={styles.loadingText}>Loading...</Text>
-        <TouchableOpacity onPress={handleHeaderTap} style={styles.hiddenButton}>
-          <Text> </Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -157,9 +157,16 @@ export default function App() {
     <ErrorBoundary>
       <View style={styles.container}>
         <StatusBar style="light" />
-        <TouchableOpacity onPress={handleHeaderTap} style={styles.hiddenButton} activeOpacity={1}>
-          <Text> </Text>
-        </TouchableOpacity>
+        {/* Move debug button to top left corner to avoid conflict with logout */}
+        {__DEV__ && (
+          <TouchableOpacity 
+            onPress={handleHeaderTap} 
+            style={styles.debugButton} 
+            activeOpacity={1}
+          >
+            <Text> </Text>
+          </TouchableOpacity>
+        )}
         {session && session.user ? <HomeScreen /> : <Auth />}
         <DebugModal visible={showDebug} onClose={() => setShowDebug(false)} />
       </View>
@@ -214,10 +221,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-  hiddenButton: {
+  debugButton: {
     position: 'absolute',
-    top: 40,
-    right: 20,
+    top: 10,
+    left: 10,
     width: 50,
     height: 50,
     zIndex: 9999,

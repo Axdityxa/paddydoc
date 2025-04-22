@@ -180,8 +180,20 @@ export default function HomeScreen() {
 
   // Sign out the user
   const signOut = async () => {
-    const { error } = await supabase.auth.signOut()
-    if (error) Alert.alert(error.message)
+    try {
+      const { error } = await supabase.auth.signOut()
+      if (error) {
+        Alert.alert('Error signing out', error.message)
+      }
+      // Wait a moment to ensure auth state changes are processed
+      setTimeout(() => {
+        // The App.tsx component will handle the redirect via onAuthStateChange
+        console.log('User signed out successfully')
+      }, 100)
+    } catch (e) {
+      console.error('Error signing out:', e)
+      Alert.alert('Error', 'Failed to sign out. Please try again.')
+    }
   }
 
   // Analyze the image for paddy disease using Gemini
