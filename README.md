@@ -22,7 +22,7 @@ PaddyDoc is a mobile application that helps farmers and agricultural specialists
 
 You can download the latest version of the PaddyDoc app using the link below:
 
-[Download PaddyDoc APK v1.0.0](https://github.com/yourusername/paddydoc_app/releases/download/v1.0.0/paddydoc-v1.0.0.apk)
+[Download PaddyDoc APK v1.0.0](https://github.com/Axdityxa/paddydoc_app/releases/download/v1.0.0/application-21d7395b-e43c-4a0d-9acf-a3abef945c78.apk)
 
 *Note: When installing, you might need to allow installation from unknown sources in your device settings.*
 
